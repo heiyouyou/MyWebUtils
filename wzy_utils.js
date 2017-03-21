@@ -163,7 +163,7 @@ function Run(obj,json,times,callback){
 				}
 				//只要传入的attr没有达到目标值，mark始终为false
 				mark = false;
-			}					
+			}
 		}
 		//如果为真进行清除定时器
 		if(mark){
@@ -203,7 +203,7 @@ function move(dom,json,callback){
 			var target = json[attr];
 			//速度，*0.2是增加摩擦力
 			var speed = (target - cur)/8;
-			//如果cur在执行过程中因为已经除去了小数部分。而速度可能会产生小数位 
+			//如果cur在执行过程中因为已经除去了小数部分。而速度可能会产生小数位
 			//所有说当cur执行的递增，那么可能cur到达不了目标,当速度是大于0的上取整，然后整数+speed==目标
 			//199 +1 200 反之向下取整
 			speed = (speed>0 ? Math.ceil(speed): Math.floor(speed));
@@ -418,7 +418,7 @@ function countDown(y,m,d,time){
 		}
 		return n;
 	};
-	var text = "距离"+endTime.getFullYear()+"年"+(endTime.getMonth()+1)+"月"+endTime.getDate()+"日<span style='color:red;'>高考还有"+day+"日"+hour+"小时"+two(min)+"分钟"+two(ss)+"秒</span>";	
+	var text = "距离"+endTime.getFullYear()+"年"+(endTime.getMonth()+1)+"月"+endTime.getDate()+"日<span style='color:red;'>高考还有"+day+"日"+hour+"小时"+two(min)+"分钟"+two(ss)+"秒</span>";
 	timeDom.innerHTML = text;
 };
 
@@ -466,7 +466,7 @@ function randomColor16(){
 	var b = Math.floor(Math.random()*256).toString(16);
 	return "#"+r+g+b;
 	//方法二：
-	//0-255	
+	//0-255
 	//var r = this.random(255).toString(16);
 	//var g = this.random(255).toString(16);
 	//var b = this.random(255).toString(16);
@@ -535,10 +535,10 @@ function getXY(e){
 			stop =document.documentElement.scrollTop;
 			sleft = document.documentElement.scrollLeft;
 		}else{
-		//ie9+ 谷歌 
+		//ie9+ 谷歌
 			stop = document.body.scrollTop;
 			sleft = document.body.scrollLeft;
-		}	
+		}
 		x = ev.clientX + sleft;
 		y = ev.clientY + stop;
 	}
@@ -642,7 +642,7 @@ function getDomIndex(doms,dom){
 
 // 参数：
 // pdom :必选项。对象(dom)。要插入到 object 邻近的对象。
-// position :必选项。字符串(String)。beforeBegin | afterBegin | beforeEnd | afterEnd 
+// position :必选项。字符串(String)。beforeBegin | afterBegin | beforeEnd | afterEnd
 // beforeBegin :　 将 pdom 插到 dom 的开始标签之前。
 // afterBegin :　 将 pdom 插到 dom 的开始标签之后。但是在dom的所有原有内容之前。
 // beforeEnd :　 将 pdom 插到 dom 的结束标签之前。但是在dom的所有原有内容之后。
@@ -699,7 +699,7 @@ function getFormValue(formDom){
 };
 
 // jquery中serializeArray的原理
-// 序列化表格参数成json数组格式： 
+// 序列化表格参数成json数组格式：
 // [{name: 'firstname', value: 'Hello'},{name:'lastname', value: 'World'},{name: 'alias'}])
 function dSerializeArray(formDom){
 	var formElements = formDom.elements;
@@ -1017,12 +1017,12 @@ var wzyDate = {
 
  /*某个日期是当年中的第几天*/
  _getDayOfYear : function(date1){
-	return Math.ceil(this._numDay(this._getFirstDayOfYear(date1),date1));	
+	return Math.ceil(this._numDay(this._getFirstDayOfYear(date1),date1));
  },
 
  /*某个日期是在当月中的第几天*/
   _getDayOfMonth : function(date1){
-	return Math.ceil(this._numDay(this._getFirstDayOfMonth(date1),date1));	
+	return Math.ceil(this._numDay(this._getFirstDayOfMonth(date1),date1));
  },
 
  /*获取某个日期在这一年的第几周*/
@@ -1043,22 +1043,22 @@ var wzyDate = {
  _eq : function(date1,date2){
 	 var stime = this._getTime(this._transferDate(date1));
 	 var etime = this._getTime(this._transferDate(date2));
-	 return stime == etime ? true :false; 
+	 return stime == etime ? true :false;
  },
  /*某个日期是否晚于某个日期*/
  _after : function(date1,date2){
 	 var stime = this._getTime(this._transferDate(date1));
 	 var etime = this._getTime(this._transferDate(date2));
-	 return  stime < etime ? true :false; 
+	 return  stime < etime ? true :false;
  },
 
   /*某个日期是否早于某个日期*/
  _before : function(date1,date2){
 	 var stime = this._getTime(this._transferDate(date1));
 	 var etime = this._getTime(this._transferDate(date2));
-	 return  stime > etime ? true :false; 
+	 return  stime > etime ? true :false;
  },
- 
+
  /*获取某年的第一天*/
  _getFirstDayOfYear : function(date){
 	var year = this._getYear(date);
@@ -1104,7 +1104,7 @@ var wzyDate = {
 	 var date = this._getDay(date);
 	 return year+"-"+month+"-"+date+" 23:59:59";
  },
- 
+
  /*获取下个月的第一天*/
  _getNextDayOfMonth: function(date){
 	var year = this._getYear(date);
@@ -1127,7 +1127,7 @@ var wzyDate = {
 	 var date = this._getDay(date);
 	 return year+"-"+month+"-"+date+" 00:00:00";
  },
- 
+
  _getLastOfWeek : function(date1){
 	 var week = 6-this._getWeek(date1);
 	 var date = this._minusDays(date1,week);
@@ -1136,9 +1136,9 @@ var wzyDate = {
 	 var date = this._getDay(date);
 	 return year+"-"+month+"-"+date+" 23:59:59";
  },
- 
+
  _getNow : function(){
-	return new Date();	
+	return new Date();
  },
  _format : function(date){
 	return this._getYear(date)+"-"+this._getMonth(date)+"-"+this._getDay(date)+" "+this._getHour(date)+":"+this._getMinute(date)+":"+this._getSecond(date);
@@ -1346,10 +1346,10 @@ function setSession(name,value,mark){
 		}
 	}else{
 		// cookie设置
-		var Days = 30; 
-	    var exp = new Date(); 
-	    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
-	    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
+		var Days = 30;
+	    var exp = new Date();
+	    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+	    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
 	}
 }
 // 兼容写法清除缓存
@@ -1363,38 +1363,38 @@ function clearSession(name,mark){
 		}
 	}else{
 		// cookie清除
-		var exp = new Date();  
-	    exp.setTime(exp.getTime() - 1);  
-	    var cval = getcookie(name);  
-	    if(cval!=null)  
-	        document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
+		var exp = new Date();
+	    exp.setTime(exp.getTime() - 1);
+	    var cval = getcookie(name);
+	    if(cval!=null)
+	        document.cookie= name + "="+cval+";expires="+exp.toGMTString();
 	}
 }
 // 面向对象封装cookie
 var wzyCookie = {
 	setCookie : function(name, value,time,option){
-	    var str=name+'='+escape(value); 
+	    var str=name+'='+escape(value);
 	    var date = new Date();
-	    date.setTime(date.getTime()+this.getCookieTime(time)); 
+	    date.setTime(date.getTime()+this.getCookieTime(time));
 	    str += "; expires=" + date.toGMTString();
-	    if(option){ 
-	        if(option.path) str+='; path='+option.path; 
-	        if(option.domain) str+='; domain='+option.domain; 
-	        if(option.secure) str+='; true'; 
-	    } 
-	    document.cookie=str; 
+	    if(option){
+	        if(option.path) str+='; path='+option.path;
+	        if(option.domain) str+='; domain='+option.domain;
+	        if(option.secure) str+='; true';
+	    }
+	    document.cookie=str;
 	},
 	getCookie : function(name){
-		var arr = document.cookie.split('; '); 
-	    if(arr.length==0) return ''; 
-	    for(var i=0; i <arr.length; i++){ 
-	        tmp = arr[i].split('='); 
-	        if(tmp[0]==name) return unescape(tmp[1]); 
-	    } 
-	    return ''; 
+		var arr = document.cookie.split('; ');
+	    if(arr.length==0) return '';
+	    for(var i=0; i <arr.length; i++){
+	        tmp = arr[i].split('=');
+	        if(tmp[0]==name) return unescape(tmp[1]);
+	    }
+	    return '';
 	},
 	delCookie : function(name){
-		this.setCookie(name,'',-1); 
+		this.setCookie(name,'',-1);
 		var date=new Date();
         date.setTime(date.getTime()-10000);
 		document.cookie=name+"=; expire="+date.toGMTString()+"; path=/";
@@ -1451,159 +1451,159 @@ function base64Change(){
 	var base64 = {
 	    base64EncodeChars:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
 	    base64DecodeChars:new Array(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1),
-	    /** 
-	     * base64编码 
-	     * @param {Object} str 
-	     */ 
-	    base64encode:function(str){
-	        var out, i, len;  
-	        var c1, c2, c3;  
-	        len = str.length;  
-	        i = 0;  
-	        out = "";  
-	        while (i < len) {  
-	            c1 = str.charCodeAt(i++) & 0xff;  
-	            if (i == len) {  
-	                out += this.base64EncodeChars.charAt(c1 >> 2);  
-	                out += this.base64EncodeChars.charAt((c1 & 0x3) << 4);  
-	                out += "==";  
-	                break;  
-	            }  
-	            c2 = str.charCodeAt(i++);  
-	            if (i == len) {  
-	                out += this.base64EncodeChars.charAt(c1 >> 2);  
-	                out += this.base64EncodeChars.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));  
-	                out += this.base64EncodeChars.charAt((c2 & 0xF) << 2);  
-	                out += "=";  
-	                break;  
-	            }  
-	            c3 = str.charCodeAt(i++);  
-	            out += this.base64EncodeChars.charAt(c1 >> 2);  
-	            out += this.base64EncodeChars.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));  
-	            out += this.base64EncodeChars.charAt(((c2 & 0xF) << 2) | ((c3 & 0xC0) >> 6));  
-	            out += this.base64EncodeChars.charAt(c3 & 0x3F);  
-	        }  
-	        return out;
-	    },
-	    /** 
-	     * base64解码 
-	     * @param {Object} str 
+	    /**
+	     * base64编码
+	     * @param {Object} str
 	     */
-	    base64decode:function(str){ 
-	        var c1, c2, c3, c4;  
-	        var i, len, out;  
-	        len = str.length;  
-	        i = 0;  
-	        out = "";  
-	        while (i < len) {  
-	            /* c1 */  
-	            do {  
-	                c1 = this.base64DecodeChars[str.charCodeAt(i++) & 0xff];  
-	            }  
-	            while (i < len && c1 == -1);  
-	            if (c1 == -1)   
-	                break;  
-	            /* c2 */  
-	            do {  
-	                c2 = this.base64DecodeChars[str.charCodeAt(i++) & 0xff];  
-	            }  
-	            while (i < len && c2 == -1);  
-	            if (c2 == -1)   
-	                break;  
-	            out += String.fromCharCode((c1 << 2) | ((c2 & 0x30) >> 4));  
-	            /* c3 */  
-	            do {  
-	                c3 = str.charCodeAt(i++) & 0xff;  
-	                if (c3 == 61)   
-	                    return out;  
-	                c3 = this.base64DecodeChars[c3];  
-	            }  
-	            while (i < len && c3 == -1);  
-	            if (c3 == -1)   
-	                break;  
-	            out += String.fromCharCode(((c2 & 0XF) << 4) | ((c3 & 0x3C) >> 2));  
-	            /* c4 */  
-	            do {  
-	                c4 = str.charCodeAt(i++) & 0xff;  
-	                if (c4 == 61)   
-	                    return out;  
-	                c4 = this.base64DecodeChars[c4];  
-	            }  
-	            while (i < len && c4 == -1);  
-	            if (c4 == -1)   
-	                break;  
-	            out += String.fromCharCode(((c3 & 0x03) << 6) | c4);  
-	        }  
+	    base64encode:function(str){
+	        var out, i, len;
+	        var c1, c2, c3;
+	        len = str.length;
+	        i = 0;
+	        out = "";
+	        while (i < len) {
+	            c1 = str.charCodeAt(i++) & 0xff;
+	            if (i == len) {
+	                out += this.base64EncodeChars.charAt(c1 >> 2);
+	                out += this.base64EncodeChars.charAt((c1 & 0x3) << 4);
+	                out += "==";
+	                break;
+	            }
+	            c2 = str.charCodeAt(i++);
+	            if (i == len) {
+	                out += this.base64EncodeChars.charAt(c1 >> 2);
+	                out += this.base64EncodeChars.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));
+	                out += this.base64EncodeChars.charAt((c2 & 0xF) << 2);
+	                out += "=";
+	                break;
+	            }
+	            c3 = str.charCodeAt(i++);
+	            out += this.base64EncodeChars.charAt(c1 >> 2);
+	            out += this.base64EncodeChars.charAt(((c1 & 0x3) << 4) | ((c2 & 0xF0) >> 4));
+	            out += this.base64EncodeChars.charAt(((c2 & 0xF) << 2) | ((c3 & 0xC0) >> 6));
+	            out += this.base64EncodeChars.charAt(c3 & 0x3F);
+	        }
 	        return out;
 	    },
-	    /** 
-	     * utf16转utf8 
-	     * @param {Object} str 
+	    /**
+	     * base64解码
+	     * @param {Object} str
+	     */
+	    base64decode:function(str){
+	        var c1, c2, c3, c4;
+	        var i, len, out;
+	        len = str.length;
+	        i = 0;
+	        out = "";
+	        while (i < len) {
+	            /* c1 */
+	            do {
+	                c1 = this.base64DecodeChars[str.charCodeAt(i++) & 0xff];
+	            }
+	            while (i < len && c1 == -1);
+	            if (c1 == -1)
+	                break;
+	            /* c2 */
+	            do {
+	                c2 = this.base64DecodeChars[str.charCodeAt(i++) & 0xff];
+	            }
+	            while (i < len && c2 == -1);
+	            if (c2 == -1)
+	                break;
+	            out += String.fromCharCode((c1 << 2) | ((c2 & 0x30) >> 4));
+	            /* c3 */
+	            do {
+	                c3 = str.charCodeAt(i++) & 0xff;
+	                if (c3 == 61)
+	                    return out;
+	                c3 = this.base64DecodeChars[c3];
+	            }
+	            while (i < len && c3 == -1);
+	            if (c3 == -1)
+	                break;
+	            out += String.fromCharCode(((c2 & 0XF) << 4) | ((c3 & 0x3C) >> 2));
+	            /* c4 */
+	            do {
+	                c4 = str.charCodeAt(i++) & 0xff;
+	                if (c4 == 61)
+	                    return out;
+	                c4 = this.base64DecodeChars[c4];
+	            }
+	            while (i < len && c4 == -1);
+	            if (c4 == -1)
+	                break;
+	            out += String.fromCharCode(((c3 & 0x03) << 6) | c4);
+	        }
+	        return out;
+	    },
+	    /**
+	     * utf16转utf8
+	     * @param {Object} str
 	     */
 	    utf16to8:function(str){
-	        var out, i, len, c;  
-	        out = "";  
-	        len = str.length;  
-	        for (i = 0; i < len; i++) {  
-	            c = str.charCodeAt(i);  
-	            if ((c >= 0x0001) && (c <= 0x007F)) {  
-	                out += str.charAt(i);  
-	            }  
-	            else   
-	                if (c > 0x07FF) {  
-	                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));  
-	                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));  
-	                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));  
-	                }  
-	                else {  
-	                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));  
-	                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));  
-	                }  
-	        }  
+	        var out, i, len, c;
+	        out = "";
+	        len = str.length;
+	        for (i = 0; i < len; i++) {
+	            c = str.charCodeAt(i);
+	            if ((c >= 0x0001) && (c <= 0x007F)) {
+	                out += str.charAt(i);
+	            }
+	            else
+	                if (c > 0x07FF) {
+	                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+	                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+	                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+	                }
+	                else {
+	                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+	                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+	                }
+	        }
 	        return out;
 	    },
-	    /** 
-	     * utf8转utf16 
-	     * @param {Object} str 
+	    /**
+	     * utf8转utf16
+	     * @param {Object} str
 	     */
 	    utf8to16:function(str){
-	        var out, i, len, c;  
-	        var char2, char3;  
-	        out = "";  
-	        len = str.length;  
-	        i = 0;  
-	        while (i < len) {  
-	            c = str.charCodeAt(i++);  
-	            switch (c >> 4) {  
-	                case 0:  
-	                case 1:  
-	                case 2:  
-	                case 3:  
-	                case 4:  
-	                case 5:  
-	                case 6:  
-	                case 7:  
-	                    // 0xxxxxxx  
-	                    out += str.charAt(i - 1);  
-	                    break;  
-	                case 12:  
-	                case 13:  
-	                    // 110x xxxx 10xx xxxx  
-	                    char2 = str.charCodeAt(i++);  
-	                    out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));  
-	                    break;  
-	                case 14:  
-	                    // 1110 xxxx10xx xxxx10xx xxxx  
-	                    char2 = str.charCodeAt(i++);  
-	                    char3 = str.charCodeAt(i++);  
-	                    out += String.fromCharCode(((c & 0x0F) << 12) | ((char2 & 0x3F) << 6) | ((char3 & 0x3F) << 0));  
-	                    break;  
-	            }  
-	        }  
+	        var out, i, len, c;
+	        var char2, char3;
+	        out = "";
+	        len = str.length;
+	        i = 0;
+	        while (i < len) {
+	            c = str.charCodeAt(i++);
+	            switch (c >> 4) {
+	                case 0:
+	                case 1:
+	                case 2:
+	                case 3:
+	                case 4:
+	                case 5:
+	                case 6:
+	                case 7:
+	                    // 0xxxxxxx
+	                    out += str.charAt(i - 1);
+	                    break;
+	                case 12:
+	                case 13:
+	                    // 110x xxxx 10xx xxxx
+	                    char2 = str.charCodeAt(i++);
+	                    out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
+	                    break;
+	                case 14:
+	                    // 1110 xxxx10xx xxxx10xx xxxx
+	                    char2 = str.charCodeAt(i++);
+	                    char3 = str.charCodeAt(i++);
+	                    out += String.fromCharCode(((c & 0x0F) << 12) | ((char2 & 0x3F) << 6) | ((char3 & 0x3F) << 0));
+	                    break;
+	            }
+	        }
 	        return out;
-	    } 
+	    }
 	};
-	return base64; 
+	return base64;
 }
 
 /**
@@ -1611,33 +1611,33 @@ function base64Change(){
  * @param {Object} url
  */
 function transfterURL(url){
-	var browser={  
-			versions:function(){   
-				var u = navigator.userAgent, app = navigator.appVersion;   
-				return {//移动终端浏览器版本信息   
-					trident: u.indexOf('Trident') > -1, //IE内核  
-					presto: u.indexOf('Presto') > -1, //opera内核  
-					webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核  
-					gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核  
-					mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
-					ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端  
-					android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器  
-					iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器  
-					iPad: u.indexOf('iPad') > -1, //是否iPad    
-					webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部  
-				};  
-			}(),  
-			language:(navigator.browserLanguage || navigator.language).toLowerCase()  
-		}   
-		
+	var browser={
+			versions:function(){
+				var u = navigator.userAgent, app = navigator.appVersion;
+				return {//移动终端浏览器版本信息
+					trident: u.indexOf('Trident') > -1, //IE内核
+					presto: u.indexOf('Presto') > -1, //opera内核
+					webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+					gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+					mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+					ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+					android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+					iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+					iPad: u.indexOf('iPad') > -1, //是否iPad
+					webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+				};
+			}(),
+			language:(navigator.browserLanguage || navigator.language).toLowerCase()
+		}
+
 		//如果你是通过手机访问pc地址，那么就会跳转到你指定的地址
-		if(browser.versions.mobile || browser.versions.ios || browser.versions.android ||   
-				browser.versions.iPhone || browser.versions.iPad){  
+		if(browser.versions.mobile || browser.versions.ios || browser.versions.android ||
+				browser.versions.iPhone || browser.versions.iPad){
 			window.location.href = url;
 		}
 };
 
-/*dom渲染完毕执行的回调函数类似于jquery中$(function(){})*/	
+/*dom渲染完毕执行的回调函数类似于jquery中$(function(){})*/
 function ready(b) {
 	if(document.addEventListener) document.addEventListener("DOMContentLoaded", b, !1);
 	else {
@@ -1651,21 +1651,21 @@ function ready(b) {
 };
 
 /*判断是否已经添加了某个class*/
-function hasClass(obj, cls) { 
-	return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));  
-} ; 
+function hasClass(obj, cls) {
+	return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+} ;
 /*添加样式*/
-function addClass(ele,cls) { 
+function addClass(ele,cls) {
 	//如果已经追加过了就不再添加
-	if (!this.hasClass(ele,cls)) ele.className +=" "+cls; 
+	if (!this.hasClass(ele,cls)) ele.className +=" "+cls;
 } ;
 
 /*删除class*/
-function removeClass(ele,cls) { 
-	if (hasClass(ele,cls)) { 
-		var reg=new RegExp('(\\s|^)'+cls+'(\\s|$)'); 
-		ele.className=ele.className.replace(reg,' '); 
-	} 
+function removeClass(ele,cls) {
+	if (hasClass(ele,cls)) {
+		var reg=new RegExp('(\\s|^)'+cls+'(\\s|$)');
+		ele.className=ele.className.replace(reg,' ');
+	}
 };
 
 /*loading提示*/
@@ -1674,7 +1674,7 @@ function loading(target,mark){
 	$(target).show().on("click",function(){
 		$(this).hide();
 	}).height(50);
-	$.loading({target:$(target),mark:(mark||7)}); 
+	$.loading({target:$(target),mark:(mark||7)});
 };
 
 /*滚动事件封装*/
@@ -1910,7 +1910,7 @@ Array.prototype.unique = function(){
 		//那么表示第i项是重复的，忽略掉。否则存入结果数组
 		if (this.indexOf(this[i]) == i) n.push(this[i]);
 	}
-	return n;	
+	return n;
 };
 
 // 简易版的时间倒计时09:50
@@ -1944,7 +1944,7 @@ var timerBack = function(id,callback,ctimer){
 				adom.mark = true;
 				return;
 			}
-		
+
 		// 当秒数变为0时，进行分钟递减
 			if(ms==0){
 				timer--;
@@ -1971,7 +1971,7 @@ function listenColseAndRefresh(){
 			}
 		}
 	}
-	
+
 	if (document.layers) {
 		document.captureEvents(Event.MOUSEDOWN);
 	}
@@ -1983,21 +1983,21 @@ function listenColseAndRefresh(){
 			ev.returnValue = false;
 			return (false);
 		}
-		
+
 		if( ev.keyCode == 116){
 			if(confirm("您确定要刷新此页面吗?")){
 				window.location.href = window.location.href;
 			}
 		}
 	};
-	
+
 	window.onbeforeunload = onbeforeunload_handler;
 	window.onunload = onunload_handler;
 	function onbeforeunload_handler() {
 	    var warning = "确认退出?";
 	    return warning;
 	}
-	
+
 	function onunload_handler() {
 	    var warning = "谢谢光临";
 	    alert(warning);
@@ -2038,7 +2038,7 @@ function isArray(arr){
 		if(Array.isArray){
 			return Array.isArray(arr);
 		}else{
-			return arr instanceof Array; 
+			return arr instanceof Array;
 		}
 	}
 }
@@ -2082,7 +2082,7 @@ function mixin(obj,obj2){
 function mix(target,source){
 	var arr = [];
 	var args = arr.slice.call(arguments);
-	
+
 	var i = 1;
 	if(args.length==1){
 		return target;
@@ -2106,4 +2106,19 @@ function encodeHTML (a) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+};
+
+/**
+ * 设置select选中
+ * @param selectId select的id值
+ * @param checkValue 选中option的值
+*/
+function setSelectChecked(selectId, checkValue){
+    var select = document.getElementById(selectId);
+    for(var i=0; i<select.options.length; i++){
+        if(select.options[i].innerHTML == checkValue){
+            select.options[i].selected = true;
+            break;  
+        }
+    }
 };
