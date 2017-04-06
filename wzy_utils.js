@@ -2118,7 +2118,22 @@ function setSelectChecked(selectId, checkValue){
     for(var i=0; i<select.options.length; i++){
         if(select.options[i].innerHTML == checkValue){
             select.options[i].selected = true;
-            break;  
+            break;
         }
     }
+};
+
+/**
+*@description:冻结对象以及对象属性的方法，可以禁止该对象继续添加属性和方法
+*@param:某一个需要冻结的对象
+**/
+var constantize = (obj) => {
+		// 冻结对象
+		Object.freeze(obj);
+		Object.keys(obj).forEach( (key, i) => {
+					// 如果属性还是一个对象，就继续进行冻结
+				  if ( typeof obj[key] === 'object' ) {
+				    constantize( obj[key] );
+				  }
+		});
 };
