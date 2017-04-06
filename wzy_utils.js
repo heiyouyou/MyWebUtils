@@ -2137,3 +2137,25 @@ var constantize = (obj) => {
 				  }
 		});
 };
+/**
+ * @description:在各种环境下获取顶部对象的方法，支持node环境,各种浏览器环境，Web Worker
+**/
+// 方法一
+var getGlobal_1 = (typeof window !== 'undefined'
+   ? window
+   : (typeof process === 'object' &&
+      typeof require === 'function' &&
+      typeof global === 'object')
+     ? global
+     : this);
+
+// 方法二
+var getGlobal_2 = function () {
+		// 浏览器或者Web Worker环境
+		if (typeof self !== 'undefined') { return self; }
+		// 浏览器环境
+		if (typeof window !== 'undefined') { return window; }
+		// node环境
+		if (typeof global !== 'undefined') { return global; }
+		throw new Error('unable to locate global object');
+};
