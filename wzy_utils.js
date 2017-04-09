@@ -318,6 +318,7 @@ function whorl(row,cells,parentDom,time){
 		}
 		index1++;
 	},time);
+};
 
 //获取系统当前时间的年月日时间函数
 function getFixedTime(){
