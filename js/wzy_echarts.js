@@ -2,9 +2,13 @@
 ** author: wzy
 ** date: 2017/4/17
 ** description: 三种常见类型echarts图的封装：折线图、柱状图、饼图
+** note: 注意首先得引入官方的echarts文件，才可以使用
+** case: echartsInstance.init("container");
 */
 var echartsInstance = {
-	// id：echarts容器的id,必须，opts：echarts的参数配置,非必须，type：1:表示折线图，2:表示扇形玫瑰图，3:表示柱状图,非必须
+	// id：echarts容器的id,必须，
+    // opts：echarts的参数配置,非必须，
+    // type：1:表示折线图，2:表示扇形玫瑰图，3:表示柱状图,非必须，默认为折线图
 	init:function(id,type,opts){
 		var chart = this.getEchartsInstance(id);
 		// echarts图的配置参数深度混合,默认是折线图的参数
