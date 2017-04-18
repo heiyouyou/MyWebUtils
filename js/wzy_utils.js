@@ -2160,3 +2160,145 @@ var getGlobal_2 = function () {
 		if (typeof global !== 'undefined') { return global; }
 		throw new Error('unable to locate global object');
 };
+
+// 冒泡排序
+function BubbleSort(array) {
+	var length = array.length;
+	for (var i = length - 1; i > 0; i--) { //用于缩小范围
+		for (var j = 0; j < i; j++) { //在范围内进行冒泡，在此范围内最大的一个将冒到最后面
+		  if (array[j] > array[j+1]) { 
+		    var temp = array[j];
+		    array[j] = array[j+1];
+		    array[j+1] = temp;
+		  }
+		}
+		console.log(array);
+		console.log("-----------------------------");
+	}
+	return array;
+};
+
+// 选择排序
+function SelectionSort(array) {
+  	var length = array.length;
+  	for (var i = 0; i < length; i++) { //缩小选择的范围
+	    var min = array[i]; //假定范围内第一个为最小值
+	    var index = i; //记录最小值的下标
+	    for (var j = i + 1; j < length; j++) { //在范围内选取最小值
+			if (array[j] < min) {
+				min = array[j];
+				index = j;
+			}
+	    }
+	    if (index != i) { //把范围内最小值交换到范围内第一个
+			var temp = array[i];
+			array[i] = array[index];
+			array[index] = temp;
+	    }
+	    console.log(array);
+	    console.log("---------------------");
+	}
+  	return array;
+};
+
+// 插入排序
+function InsertionSort(array) {
+	var length = array.length;
+	for (var i = 0; i < length - 1; i++) {
+		//i代表已经排序好的序列最后一项下标
+		var insert = array[i+1];
+		var index = i + 1;//记录要被插入的下标
+		for (var j = i; j >= 0; j--) {
+			if (insert < array[j]) {
+				//要插入的项比它小，往后移动
+				array[j+1] = array[j];
+				index = j;
+			}
+		}
+		array[index] = insert;
+		console.log(array);
+		console.log("-----------------------");
+	}
+	return array;
+};
+
+// 希尔排序
+function ShellSort(array) {
+	var length = array.length;
+	var gap = Math.round(length / 2);
+	while (gap > 0) {
+		for (var i = gap; i < length; i++) {
+			var insert = array[i];
+			var index = i;
+			for (var j = i; j >= 0; j-=gap) {
+				if (insert < array[j]) {
+				  array[j+gap] = array[j];
+				  index = j;
+				}
+			}
+			array[index] = insert;
+		}
+		console.log(array);
+		console.log("-----------------------");
+		gap = Math.round(gap/2 - 0.1);
+	}
+	return array;
+};
+
+// 归并排序
+function MergeSort(array) {
+	var length = array.length;
+	if (length <= 1) {
+		return array;
+	} else {
+		var num = Math.ceil(length/2);
+		var left = MergeSort(array.slice(0, num));
+		var right = MergeSort(array.slice(num, length));
+		return merge(left, right);
+	}
+}
+function merge(left, right) {
+	console.log(left);
+	console.log(right);
+	var a = new Array();
+	while (left.length > 0 && right.length > 0) {
+		if (left[0] <= right[0]) {
+		  var temp = left.shift();
+		  a.push(temp);
+		} else {
+		  var temp = right.shift();
+		  a.push(temp);
+		}
+	}
+	if (left.length > 0) {
+		a = a.concat(left);
+	}
+	if (right.length > 0) {
+		a = a.concat(right);
+	}
+	console.log(a);
+	console.log("-----------------------------");
+	return a;
+}
+
+// 快速排序
+function QuickSort(array) {
+	var length = array.length;
+	if (length <= 1) {
+		return array;
+	} else {
+		var smaller = [];
+		var bigger = [];
+		var base = [array[0]];
+		for (var i = 1; i < length; i++) {
+			if (array[i] <= base[0]) {
+				smaller.push(array[i]);
+			} else {
+				bigger.push(array[i]);
+			}
+		}
+		console.log(smaller.concat(base.concat(bigger)));
+		console.log("-----------------------");
+		return QuickSort(smaller).concat(base.concat(QuickSort(bigger)));
+  	}
+}
