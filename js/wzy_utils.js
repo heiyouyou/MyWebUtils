@@ -2014,7 +2014,7 @@ function getQuery(name){
 	if(r!=null)return unescape(r[2]);return null;
 };
 
-// 反转字符串
+// +反转字符串
 function revStr(str){
 	var tmpStr = "";
 	var len = str.length;
