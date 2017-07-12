@@ -2044,6 +2044,18 @@ function isArray(arr){
 	}
 }
 
+// var isArray = function(obj) {
+// 	return Object.prototype.toString.call(obj) === '[object Array]';
+// };
+
+var is_array = function(value) { 
+	return value &&
+	typeof value === 'object' &&
+	typeof value.length === 'number' &&
+	typeof value.splice === 'function' &&
+	!(value.propertyIsEnumerable('length'));
+};
+
 /**
  * 判断是否为空
  * @param val
@@ -2166,7 +2178,7 @@ function BubbleSort(array) {
 	var length = array.length;
 	for (var i = length - 1; i > 0; i--) { //用于缩小范围
 		for (var j = 0; j < i; j++) { //在范围内进行冒泡，在此范围内最大的一个将冒到最后面
-		  if (array[j] > array[j+1]) { 
+		  if (array[j] > array[j+1]) {
 		    var temp = array[j];
 		    array[j] = array[j+1];
 		    array[j+1] = temp;
