@@ -2315,14 +2315,20 @@ function QuickSort(array) {
   	}
 }
 
-// 克隆对象
-function clone(origin) {
+// 克隆自身属性的对象
+function selfClone(origin) {
   let originProto = Object.getPrototypeOf(origin);
   return Object.assign(Object.create(originProto), origin);
 }
 
 // 克隆继承属性的对象
-function clone(origin) {
+function extendsClone(origin) {
   let originProto = Object.getPrototypeOf(origin);
   return Object.assign(Object.create(originProto), origin);
 }
+
+// 合并多个对象
+const merge = (target, ...sources) => Object.assign(target, ...sources);
+
+// 返回一个新的扩展对象
+const mergeNew = (...sources) => Object.assign({}, ...sources);
