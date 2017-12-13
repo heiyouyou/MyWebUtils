@@ -2048,7 +2048,7 @@ function isArray(arr){
 // 	return Object.prototype.toString.call(obj) === '[object Array]';
 // };
 
-var is_array = function(value) { 
+var is_array = function(value) {
 	return value &&
 	typeof value === 'object' &&
 	typeof value.length === 'number' &&
@@ -2313,4 +2313,16 @@ function QuickSort(array) {
 		console.log("-----------------------");
 		return QuickSort(smaller).concat(base.concat(QuickSort(bigger)));
   	}
+}
+
+// 克隆对象
+function clone(origin) {
+  let originProto = Object.getPrototypeOf(origin);
+  return Object.assign(Object.create(originProto), origin);
+}
+
+// 克隆继承属性的对象
+function clone(origin) {
+  let originProto = Object.getPrototypeOf(origin);
+  return Object.assign(Object.create(originProto), origin);
 }
