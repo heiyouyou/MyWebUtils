@@ -1429,12 +1429,40 @@ function getOffsetTop(el){
     };
     return top;
 }
-function getClientHeight(){
-	//  兼容拿到当前可视窗口的高度
+
+// 获取滚动条滚动距离
+function getScrollTop() {
+    var scrollTop = 0;
+    if (document.documentElement && document.documentElement.scrollTop) {
+        scrollTop = document.documentElement.scrollTop;
+    } else if (document.body) {
+        scrollTop = document.body.scrollTop;
+    }
+    return scrollTop;
+}
+
+// 获取可视区域的高度
+function getClientHeight() {
+    //  兼容拿到当前可视窗口的高度
     var clientH = window.innerHeight || document.documentElement.clientHeight;
-	// 	拿到滚动条的滚动距离
+    // 	拿到滚动条的滚动距离
     var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
     return clientH + scrollT;
+}
+
+// 获取文档的总高度
+function getScrollHeight() {　　
+    var scrollHeight = 0,
+        bodyScrollHeight = 0,
+        documentScrollHeight = 0;　　
+    if (document.body) {　　　　
+        bodyScrollHeight = document.body.scrollHeight;　　
+    }　　
+    if (document.documentElement) {　　　　
+        documentScrollHeight = document.documentElement.scrollHeight;　　
+    }　　
+    scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;　　
+    return scrollHeight;
 }
 
 //a连接实现下载，aLink---某个a链接，filename---自定义文件名xxx.word，content---文件的内容
