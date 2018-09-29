@@ -2511,3 +2511,22 @@ function getTimeAgo(dateTimeStamp) {
   }
   return result;
 }
+
+/**
+ * 数字格式化
+ * @param s 数字、包含数字的字符串 如'aa1234.11'
+ * @param n 保留小数点位数
+ * @returns 带有千分符的字符串,如'1,234.11'
+ */
+function formatNumber(s, n) {
+	n = n >= 0 && n <= 20 ? n : 2;
+	s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
+	var l = s.split(".")[0].split("").reverse(),
+	r = s.split(".")[1];
+	r = (r == null ? "" : "." + r);
+	var t = "";
+	for (var i = 0; i < l.length; i++) {
+	t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+	}
+	return t.split("").reverse().join("") + r;
+}
