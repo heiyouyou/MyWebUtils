@@ -2530,3 +2530,14 @@ function formatNumber(s, n) {
 	}
 	return t.split("").reverse().join("") + r;
 }
+
+// 验证图片url是否存在
+let isHasImg = (pathImg)=> {
+    var ImgObj = new Image();
+    ImgObj.src = pathImg;
+    if (ImgObj.fileSize > 0 || (ImgObj.width > 0 && ImgObj.height > 0)) {
+        return true;
+    } else {
+        return false;
+    }
+}
